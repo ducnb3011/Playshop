@@ -25,3 +25,8 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 Route::get('/dashboard', 'App\Http\Controllers\AdminController@show_dashboard');
 Route::get('/logout', 'App\Http\Controllers\AdminController@logout');
 Route::post('/admin-dashboard', 'App\Http\Controllers\AdminController@dashboard');
+
+//Category product
+Route::get('/add-category-product', 'App\Http\Controllers\CategoryProduct@addCategoryProduct');
+Route::get('/all-category-product', 'App\Http\Controllers\CategoryProduct@allCategoryProduct');
+Route::post('/save-category-product', 'App\Http\Controllers\CategoryProduct@saveCategoryProduct');
