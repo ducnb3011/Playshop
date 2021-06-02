@@ -28,7 +28,7 @@
                         </textarea>
                     </div>
                     <div>
-                    <input type="number" value="{{$edit_category_product->category_status}}" class="form-control" name="category_product_status" placeholder="">
+                    <input style="display: none;" type="number" value="{{$edit_category_product->category_status}}" class="form-control" name="category_product_status" placeholder="">
                     </div>
                     <button type="submit" name="update_category_product" class="btn btn-info">Cập nhật</button>
                 </form>

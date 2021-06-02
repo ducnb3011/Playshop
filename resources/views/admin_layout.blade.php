@@ -54,7 +54,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--logo start-->
             <div class="brand">
                 <a href="index.html" class="logo">
-                    VISITORS
+                    ADMIN
                 </a>
                 <div class="sidebar-toggle-box">
                     <div class="fa fa-bars"></div>
@@ -119,8 +119,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Danh mục thương hiệu</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('/add-brand-product')}}">Thêm danh mục thương hiệu</a></li>
-                                <li><a href="{{URL::to('/all-brand-product')}}">Liệt kê danh mục thương hiệu</a></li>
+                                <li><a href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu</a></li>
+                                <li><a href="{{URL::to('/all-brand-product')}}">Liệt kê thương hiệu</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Sản phẩm</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('/add-product')}}">Thêm sản phẩm</a></li>
+                                <li><a href="{{URL::to('/all-product')}}">Liệt kê sản phẩm</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -135,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 @yield('admin_content')
             </section>
             <!-- footer -->
-            <div class="footer" style="position: absolute; bottom: 0; width: 100%">
+            <div class="footer">
                 <div class="wthree-copyright" >
                     <p>© 2017 Visitors. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
                 </div>

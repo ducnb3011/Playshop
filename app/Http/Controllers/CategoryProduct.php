@@ -28,6 +28,7 @@ class CategoryProduct extends Controller
         DB::table('tbl_category_product')->insert($data);
         Session::put('message', "Thêm danh mục thành công");
         return Redirect::to('/add-category-product');
+
     }
     public function activeCategoryProduct( $category_product_id ) {
         DB::table('tbl_category_product')->where('category_id',  $category_product_id)->update(['category_status'=>1]);
