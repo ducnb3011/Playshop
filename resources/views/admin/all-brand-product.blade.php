@@ -42,39 +42,39 @@
                                 <input type="checkbox"><i></i>
                             </label>
                         </th>
-                        <th>Tên danh mục</th>
+                        <th>Tên nhãn hiệu</th>
                         <th>Hiển thị</th>
                         <th>Quản lý</th>
                         <th style="width:30px;"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($all_category_product as $key => $cate_pro)
+                    @foreach($all_brand_product as $key => $cate_pro)
                     <tr>
                         <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                        <td>{{ $cate_pro->category_name }}</td>
+                        <td>{{ $cate_pro->brand_name }}</td>
                         <td>
                             <?php 
-                            if($cate_pro->category_status == 0) {
+                            if($cate_pro->brand_status == 0) {
                             ?>
-                                <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}">
+                                <a href="{{URL::to('/active-brand-product/'.$cate_pro->brand_id)}}">
                                     <span class="fa fa-eye-slash text-danger" style="font-size: 28px; padding-left: 10px;"></span>
                                 </a>
                             <?php
                             } else { 
                             ?>
-                                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}">
+                                <a href="{{URL::to('/unactive-brand-product/'.$cate_pro->brand_id)}}">
                                     <span class="fa fa-eye" style="font-size: 28px; padding-left: 10px;"></"></span>
                                 </a>
                             <?php } 
                             ?>
                         </td>
                         <td>
-                            <a href="{{URL::to('/edit-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class="">
+                            <a href="{{URL::to('/edit-brand-product/'.$cate_pro->brand_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil-square-o text-success text-active" style="padding-right: 20px"></i>
                             </a>
-                            <a onclick = "return confirm('Bạn chắc chắn muốn xóa danh mục <?php echo $cate_pro->category_name; ?>')"  
-                            href="{{URL::to('/delete-category-product/'.$cate_pro->category_id)}}" class="active" ui-toggle-class="">
+                            <a onclick = "return confirm('Bạn chắc chắn muốn xóa danh mục <?php echo $cate_pro->brand_name; ?>')"  
+                            href="{{URL::to('/delete-brand-product/'.$cate_pro->brand_id)}}" class="active" ui-toggle-class="">
                                 <i class="fa fa-times text-danger text"></i>
                             </a>
                         </td>
