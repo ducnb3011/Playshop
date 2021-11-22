@@ -89,7 +89,7 @@
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li><a href="{{URL::to('/show-cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
 							</ul>
 						</div>
@@ -112,24 +112,20 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="{{URL::to('/trang-chu')}}" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								<li><a href="{{URL::to('/trang-chu')}}" class="active">Trang chủ</a></li>
+								<li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+                                        <li><a href="shop.html">Sản phẩm</a></li>
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="blog.html">Tin tức 1</a></li>
+										<li><a href="blog-single.html">Tin tức 2</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Contact</a></li>
+								<li><a href="404.html">Giỏ hàng</a></li>
+								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
 						</div>
 					</div>
@@ -155,44 +151,24 @@
 						</ol>
 						
 						<div class="carousel-inner">
+							@foreach($all_banner as $key => $banner)
+							@if($banner->banner_id == 1)
 							<div class="item active">
-								<div class="col-sm-6">
-                                    <h1><span>Play</span>shop</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{('public/frontend/images/girl1.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
-								</div>
-							</div>
+							@else
 							<div class="item">
+							@endif
 								<div class="col-sm-6">
-                                    <h1><span>Play</span>shop</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                    <h1><span>{{$banner->banner_name}}</span></h1>
+									<h2>{{$banner->banner_slogan}}</h2>
+									<p>{{$banner->banner_desc}}</p>
 									<button type="button" class="btn btn-default get">Get it now</button>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{('public/frontend/images/girl2.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{('public/frontend/images/pricing.png')}}"  class="pricing" alt="" />
+									<img src="{{URL::to('public/frontend/images/banner/'.$banner->product_image)}}"
+									style="max-height:400px; display: block; height: auto;" class="girl" alt="" />
 								</div>
 							</div>
-							
-							<div class="item">
-								<div class="col-sm-6">
-                                    <h1><span>Play</span>shop</h1>
-									<h2>Free Ecommerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
-								</div>
-								<div class="col-sm-6">
-									<img src="{{('public/frontend/images/girl3.jpg')}}" class="girl img-responsive" alt="" />
-									<img src="{{('public/frontend/images/pricing.png')}}" class="pricing" alt="" />
-								</div>
-							</div>
-							
+							@endforeach
 						</div>
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -213,141 +189,42 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<h2>Danh mục</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							@foreach($category_product as $key => $category)
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
-										</a>
-									</h4>
-								</div>
-								<div id="sportswear" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
-										</ul>
-									</div>
+									<h4 class="panel-title"><a href="{{URL::to('/category-product/'.$category->category_id)}}">
+									{{$category->category_name}}</a></h4>
 								</div>
 							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mens
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-											<li><a href="#">Armani</a></li>
-											<li><a href="#">Prada</a></li>
-											<li><a href="#">Dolce and Gabbana</a></li>
-											<li><a href="#">Chanel</a></li>
-											<li><a href="#">Gucci</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Households</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Interiors</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Clothing</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Bags</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shoes</a></h4>
-								</div>
-							</div>
+							@endforeach
 						</div><!--/category-products-->
 					
 						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
+							<h2>Thương hiệu</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									@foreach($brand_product as $key => $brand)
+									<li><a href="{{URL::to('/brand-product/'.$brand->brand_id)}}"> 
+									<span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
+									@endforeach
 								</ul>
 							</div>
 						</div><!--/brands_products-->
-						
-						<div class="price-range"><!--price-range-->
+						<!--
+						<div class="price-range">
 							<h2>Price Range</h2>
 							<div class="well text-center">
 								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
 								 <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
 							</div>
-						</div><!--/price-range-->
+						</div>
 						
-						<div class="shipping text-center"><!--shipping-->
+						<div class="shipping text-center">
 							<img src="images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-					
+						</div>
+						-->
 					</div>
 				</div>
 				
@@ -365,29 +242,31 @@
 					<div class="col-sm-2">
 						<div class="companyinfo">
 							<h2><span>Play</span>shop</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<p>True Gaming. Some Are PC, some are console, We Are Gaming.</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
+						@foreach($all_banner as $key => $banner)
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
 								<a href="#">
-									<div class="iframe-img">
-										<img src="{{('public/frontend/images/iframe1.png')}}" alt="" />
+									<div style="height: 100px; width: auto">
+										<img src="{{URL::to('public/frontend/images/brand/'.$banner->product_image)}}"
+										style="height: 100px; width: auto" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<br>
+								<p>{{$banner->banner_name}}</p>
 							</div>
 						</div>
-
+						@endforeach
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="{{('public/frontend/images/map.png')}}" alt="" />
+							<img src="{{URL::to('public/frontend/images/map.png')}}" alt="" />
 							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>

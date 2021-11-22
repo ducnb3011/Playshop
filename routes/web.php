@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index');
 Route::get('/trang-chu', 'App\Http\Controllers\HomeController@index');
 
+Route::get('/category-product/{category_product_id}', 'App\Http\Controllers\CategoryProduct@showCategoryHome');
+Route::get('/brand-product/{brand_product_id}', 'App\Http\Controllers\BrandProduct@showBrandHome');
+Route::get('/product-info/{product_id}', 'App\Http\Controllers\ProductController@detailProduct');
 
 
 
@@ -60,3 +63,13 @@ Route::get('/active-product/{product_id}', 'App\Http\Controllers\ProductControll
 
 Route::post('/save-product', 'App\Http\Controllers\ProductController@saveProduct');
 Route::post('/update-product/{product_id}', 'App\Http\Controllers\ProductController@updateProduct');
+
+//cart
+Route::post('/save-cart', 'App\Http\Controllers\CartController@saveCart');
+Route::get('/show-cart', 'App\Http\Controllers\CartController@showCart');
+Route::get('/delete-to-cart/{rowId}', 'App\Http\Controllers\CartController@deleteToCart');
+Route::get('/more-to-cart/{rowId}', 'App\Http\Controllers\CartController@moreToCart');
+Route::get('/less-to-cart/{rowId}', 'App\Http\Controllers\CartController@lessToCart');
+
+//checkout
+Route::get('/login-checkout', 'App\Http\Controllers\CheckoutController@loginCheckout');

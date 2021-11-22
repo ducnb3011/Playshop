@@ -45,7 +45,7 @@
                         <th>Tên nhãn hiệu</th>
                         <th>Hiển thị</th>
                         <th>Quản lý</th>
-                        <th style="width:30px;"></th>
+                        
                     </tr>
                 </thead>
                 <tbody>

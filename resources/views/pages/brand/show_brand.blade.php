@@ -2,8 +2,7 @@
 @section('content')
 
 <div class="features_items">
-    <!--features_items-->
-    <h2 class="title text-center">Sản phẩm mới</h2>
+    <h2 class="title text-center">{{$brand_selected->brand_name}}</h2>
     @foreach($all_product as $key => $product)
     <a href="{{URL::to('/product-info/'.$product->product_id)}}">
         <div class="col-sm-4">
@@ -19,6 +18,7 @@
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ
                             hàng</a>
                     </div>
+                    
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
@@ -31,7 +31,5 @@
     </a>
     @endforeach
 </div>
-<!--features_items-->
-
 
 @endsection
